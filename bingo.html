@@ -103,24 +103,7 @@ Gerar cartela
         var cartela_g = [49, 54, 56, 59, 60];
         var cartela_0 = [63, 66, 72, 74, 75];
 
-        function GerarCartela()
-        {
-            for(var i = 1; i <= 5; i++)
-            {
-                var td = document.getElementById ("g"+i)
-                td.innerText = cartelaG[i]
-                 td = document.getElementById ("b"+i)
-                td.innerText = cartelaB[i]
-                 td = document.getElementById ("i"+i)
-                td.innerText = cartelaI[i]
-                 td = document.getElementById ("n"+i)
-                 td.innerText = cartelaN[i]
-                 td = document.getElementById ("o"+i)
-                td.innerText = cartelaO[i]
-            }
-
-        }
-
+      
         function GerarArray(NumeroInicial, quantidade) {
             var retorno = []
             for (var i = 0; i < quantidade; i++)
@@ -150,7 +133,38 @@ Gerar cartela
         cartela_0 = GerarArray (61,15);
         console.log("Array da coluna g")
         console.log(cartela_o)
+
+        function GerarCartela()
+        {
+            cartelaB = MisturarArray(GerarArray(1,15))
+                var td = document.getElementById 
+            
+            for(var i = 1; i <= 5; i++)
+        }
+
+        function NumeroAleatorio (numeroMinimo, numeroMaximo){
+            var retorno = Math.floor(math.random() * numeroMaximo)
+            if (retorno > 0 && retorno >= numeroMinimo && retorno <= numeroMaximo) {
+                return retorno
+            } else { 
+                return NumeroAleatorio (numeroMinimo, numeroMaximo)
+            }
+        }
     
+        function MisturarArray (array){
+        var aleatorio 
+        var cont = array.lenght
+        var auxiliar
+        while (cont != 0) {
+            aleatorio = NumeroAleatorio (1, array, lenght)
+            cont--
+            auxiliar = array[cont]
+            array[cont] = array[aleatorio]
+            array[aleatorio] = auxiliar
+        }
+        return array
+    }
+
         var b2 = document.getElementById("b2");
         var b1 = document.getElementById("b1");
         var b3 = document.getElementById("b3");
