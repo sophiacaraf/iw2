@@ -103,67 +103,18 @@ Gerar cartela
         var cartela_g = [49, 54, 56, 59, 60];
         var cartela_0 = [63, 66, 72, 74, 75];
 
+
       
         function GerarArray(NumeroInicial, quantidade) {
             var retorno = []
             for (var i = 0; i < quantidade; i++)
             { 
-                retorno,push(NumeroInicial)
+                retorno.push(NumeroInicial)
                 NumeroInicial++;
             }
             return retorno
         }
 
-        cartela_b = GerarArray (1,15);
-        console.log("Array da coluna B")
-        console.log(cartela_b)
-
-        cartela_i = GerarArray (16,15);
-        console.log("Array da coluna i")
-        console.log(cartela_i)
-
-        cartela_n = GerarArray (31,15);
-        console.log("Array da coluna n")
-        console.log(cartela_n)
-
-        cartela_g = GerarArray (46,15);
-        console.log("Array da coluna g")
-        console.log(cartela_g)
-
-        cartela_0 = GerarArray (61,15);
-        console.log("Array da coluna g")
-        console.log(cartela_o)
-
-        function GerarCartela()
-        {
-            cartelaB = MisturarArray(GerarArray(1,15))
-                var td = document.getElementById 
-            
-            for(var i = 1; i <= 5; i++)
-        }
-
-        function NumeroAleatorio (numeroMinimo, numeroMaximo){
-            var retorno = Math.floor(math.random() * numeroMaximo)
-            if (retorno > 0 && retorno >= numeroMinimo && retorno <= numeroMaximo) {
-                return retorno
-            } else { 
-                return NumeroAleatorio (numeroMinimo, numeroMaximo)
-            }
-        }
-    
-        function MisturarArray (array){
-        var aleatorio 
-        var cont = array.lenght
-        var auxiliar
-        while (cont != 0) {
-            aleatorio = NumeroAleatorio (1, array, lenght)
-            cont--
-            auxiliar = array[cont]
-            array[cont] = array[aleatorio]
-            array[aleatorio] = auxiliar
-        }
-        return array
-    }
 
         var b2 = document.getElementById("b2");
         var b1 = document.getElementById("b1");
@@ -226,9 +177,9 @@ Gerar cartela
             console.log("Elemento=")
             console.log(elemento)
             console.log(nomeId)
-            elemento.style.backgroundColor = 'royalblue'
+            elemento.style.backgroundColor = "royalblue";
 
-            if(elemento.style.backgroundColor == 'royalblue')
+            if(elemento.style.backgroundColor == "royalblue")
             {
                 alert ("Deu certo")
             }
@@ -240,8 +191,65 @@ Gerar cartela
         }
 
 
+        cartela_b = GerarArray (1,15);
+        cartela_i = GerarArray (16,15);
+        cartela_n = GerarArray (31,15);
+        cartela_g = GerarArray (46,15);
+        cartela_0 = GerarArray (61,15);
 
 
+        function GerarCartela()
+        {
+            cartela_b = MisturarArray(GerarArray(1,15));
+            cartela_i = MisturarArray(GerarArray(16,15));
+            cartela_n = MisturarArray(GerarArray(31,15));
+            cartela_g = MisturarArray(GerarArray(46,15));
+            cartela_0 = MisturarArray(GerarArray(61,15));
+            
+            for(var i = 1; i <= 5; i++)
+            {
+                td = document.getElementById("b"+i)
+                td.innerText = cartela_b[i]
+
+                td = document.getElementById("i"+i)
+                td.innerText = cartela_i[i]
+ 
+                td = document.getElementById("n"+i)
+                td.innerText = cartela_n[i]
+ 
+                var td = document.getElementById("g"+i)
+                td.innerText = cartela_g [i]
+
+                td = document.getElementById("o"+i)
+                td.innerText = cartela_0[i]
+            }
+        }
+
+
+
+        function NumeroAleatorio(numeroMinimo, numeroMaximo){
+            var retorno = Math.floor(Math.random() * numeroMaximo)
+            if (retorno > 0 && retorno >= numeroMinimo && retorno <= numeroMaximo){
+                return retorno
+            } else {
+                return NumeroAleatorio(numeroMinimo, numeroMaximo)
+            }
+        }
+    
+
+        function MisturarArray(array) {
+            var aleatorio
+            var cont = array.length
+            var auxiliar
+            while (cont != 0) {
+                aleatorio = NumeroAleatorio(1, array.length)
+                cont--
+                auxiliar = array[cont]
+                array[cont] = array[aleatorio]
+                array[aleatorio] = auxiliar
+            }
+            return array
+        }
 
     </script>
 
