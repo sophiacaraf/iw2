@@ -91,6 +91,11 @@
 </div>
 </table>
 
+
+<button onclick="SortearNumero()">Sortear número</button>
+        <p id="numeroSorteadoExibido" style="font-size: 24px; color: white;"></p>
+
+
 <button onclick="GerarCartela()">
 Gerar cartela 
 </button>
@@ -255,14 +260,36 @@ Gerar cartela
 
 
 
+         
 
+   
+    var NumerosSorteados = GerarArray(1, 75)
+    NumerosSorteados = MisturarArray(NumerosSorteados)
 
+    var indiceSorteio = 0;
 
+    function SortearNumero() {
+        if (indiceSorteio < NumerosSorteados.length) {
+            var numero = NumerosSorteados[indiceSorteio];
+            indiceSorteio++;
 
+            document.getElementById("numeroSorteadoExibido").innerText = "Número sorteado: " + numero;
 
-
-
-
+         
+            for (var i = 1; i <= 5; i++) {
+                var colunas = ["b", "i", "n", "g", "o"];
+                for (var j = 0; j < colunas.length; j++) {
+                    var id = colunas[j] + i;
+                    var celula = document.getElementById(id);
+                    if (celula && parseInt(celula.innerText) === numero) {
+                        celula.style.backgroundColor = "blue";
+                    }
+                }
+            }
+        } else {
+            document.getElementById("numeroSorteadoExibido").innerText = "Todos os números foram sorteados.";
+        }
+    }
 
     </script>
 
