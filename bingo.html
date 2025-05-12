@@ -98,7 +98,10 @@ Gerar cartela
 </button>
 
 <h2>Tabela dos Números Sorteados</h2>
-<table id="tabelaNumeros" border="1" style="border-collapse: collapse; background-color: white;">
+    <div style="display: flex; justify-content: center; margin-top: 40px;">
+        <table id="tabelaNumeros" border="1" style="border-collapse: collapse; background-color: white;">
+           
+            
     <tbody>
         <tr>
             <td id="num1">1</td>
@@ -185,8 +188,9 @@ Gerar cartela
             <td id="num74">74</td>
             <td id="num75">75</td>
         </tr>
-    </tbody>
+</tbody>
 </table>
+</div>
 
 <button onclick="SortearNumero()">Sortear número</button>
         <p id="numeroSorteadoExibido" style="font-size: 24px; color: white;"></p>
@@ -360,27 +364,33 @@ Gerar cartela
     var indiceSorteio = 0;
 
     function SortearNumero() {
-        if (indiceSorteio < NumerosSorteados.length) {
-            var numero = NumerosSorteados[indiceSorteio];
-            indiceSorteio++;
+    if (indiceSorteio < NumerosSorteados.length) {
+        var numero = NumerosSorteados[indiceSorteio];
+        indiceSorteio++;
 
-            document.getElementById("numeroSorteadoExibido").innerText = "Número sorteado: " + numero;
+        document.getElementById("numeroSorteadoExibido").innerText = "Número sorteado: " + numero;
 
-         
-            for (var i = 1; i <= 5; i++) {
-                var colunas = ["b", "i", "n", "g", "o"];
-                for (var j = 0; j < colunas.length; j++) {
-                    var id = colunas[j] + i;
-                    var celula = document.getElementById(id);
-                    if (celula && parseInt(celula.innerText) === numero) {
-                        celula.style.backgroundColor = "blue";
-                    }
+        var celulaPainel = document.getElementById("num" + numero);
+        if (celulaPainel) {
+            celulaPainel.style.backgroundColor = "red";
+            celulaPainel.style.color = "white";
+        }
+
+        for (var i = 1; i <= 5; i++) {
+            var colunas = ["b", "i", "n", "g", "o"];
+            for (var j = 0; j < colunas.length; j++) {
+                var id = colunas[j] + i;
+                var celula = document.getElementById(id);
+                if (celula && parseInt(celula.innerText) === numero) {
+                    celula.style.backgroundColor = "royalblue";
+                    celula.style.color = "white";
                 }
             }
-        } else {
-            document.getElementById("numeroSorteadoExibido").innerText = "Todos os números foram sorteados.";
         }
+    } else {
+        document.getElementById("numeroSorteadoExibido").innerText = "Todos os números foram sorteados.";
     }
+}
 
     </script>
 
